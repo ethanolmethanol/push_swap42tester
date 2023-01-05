@@ -68,7 +68,7 @@ checkrange() {
 		clear
 		echo "$(( $m / ($n + 1) )) mean nb of operations"
 		echo "$h highest nb of operations"
-		if [ $s -eq $n ]; then printf "${GREEN}"; else printf "${RED}"; fi
+		if [ $s -eq $(( $n + 1 )) ]; then printf "${GREEN}"; else printf "${RED}"; fi
 		echo -e "$(( 100 * $s / ($n + 1) )) % ${NC}success rate ($s/$(( $n + 1 )))"
 	done
 	if [ $s -eq $3 ]; then
