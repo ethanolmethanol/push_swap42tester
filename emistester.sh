@@ -58,7 +58,7 @@ checkrange() {
 	do
 		a=$(randomizer $1 $2)
 		b=$(echo ./push_swap $a | tr '\0' ' ')
-		c=$(./push_swap $a | ./checker_linux $a)
+		c=$(./push_swap $a | $4 $a)
 		o=$($b |wc -l)
 		((m=m+o))
 		if [ $o -gt $h ]; then h=$o; fi
@@ -100,6 +100,6 @@ else
 	echo "Usage : ./emistester.sh <a> <b> <c> (optional: custom checker)"
 	echo "Where a-b is the range of numbers to shuffle and input in push_swap"
 	echo "And c is the number of tests to perform"
-	echo "Example : ./emistester.sh 1 100 100 checker"
+	echo "Example : ./emistester.sh 1 100 100 ./checker"
 	exit 1
 fi
