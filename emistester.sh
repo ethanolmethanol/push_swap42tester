@@ -30,7 +30,7 @@ checkallperms() {
 	do
 		a=$(echo $n | sed 's/./& /g')
 		b=$(echo ./push_swap $a | tr '\0' ' ')
-		c=$(./push_swap $a | $4 $a)
+		c=$(./push_swap $a | ./checker_linux $a)
 		o=$($b |wc -l)
 		if [ $o -gt $2 ] || [ "$c" != "OK" ]; then
 			echo -e "${RED}Failed for $n: $o operations (max is $2), checker is $c${NC}"
